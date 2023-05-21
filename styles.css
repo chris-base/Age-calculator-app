@@ -1,5 +1,142 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
 body {
-    font-family: "DM Sans";
+    font-family: "Poppins";
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    background-color: #777777;
+}
+
+#app-container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    border-bottom-right-radius: 150px;
+    width: 550px;
+    height: 450px;
+    padding-top: 20px;
+    padding-left: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#allInputsContainer {
+    display: flex;
+}
+
+#inputContainer {
+    display: flex;
+    height: 100px;
+    margin-right: 25px;
+}
+
+.dayText {
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    color: hsl(0, 1%, 44%);
+    margin: 10px 0 7px 0;
+    font-size: 12px;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin: 0;
+    min-width: 120px;
+    max-width: 120px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #aaaaaa;
+    font-size: 23px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    padding-left: 15px;
+    outline: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+input[type=number]:hover {
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+input[type=number]:focus {
+    border: 1px solid black;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#hrAndButtonContainer {
+    display: flex;
+}
+
+hr {
+    display: flex;
+    height: 10px;
+    width: 77%;
+    margin: 25px 0 0 0;
+    color: #ffffff;
+    border-left: 0;
+}
+
+#arrowButtonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    background-color: black;
+    box-shadow: 0px 5px 7px #aaaaaa;
+    cursor: pointer;
+}
+
+#arrowButtonContainer::after {
+    box-shadow: 0px 3px 15px #999999;
+}
+
+#arrowButtonImg {
+    width: 60px;
+    height: 60px;
+    background-image: url(./assets/images/icon-arrow.svg);
+    background-position: center;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#outputTextContainer {
+    display: flex;
+    flex-direction: column;
+    font-size: 60px;
+    margin: 0;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.outputSingleContainer {
+    display: flex;
+    margin: 0;
+    line-height: 65px;
+}
+
+.outputText {
+    margin: 0 5px 0 0;
+    color: hsl(259, 100%, 65%);
+}
+
+.outputConstText {
+    margin: 0;
 }
