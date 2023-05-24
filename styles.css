@@ -29,11 +29,11 @@ body {
 
 #inputContainer {
     display: flex;
-    height: 100px;
+    height: 90px;
     margin-right: 25px;
 }
 
-.dayText {
+.inputLabelText {
     text-transform: uppercase;
     letter-spacing: 1.5px;
     font-weight: 700;
@@ -74,6 +74,16 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+#invalidInputText {
+    position: absolute;
+    display: flex;
+    margin: 0 0 0 3px;
+    color: hsl(0, 100%, 67%);
+    font-size: 11px;
+    font-style: italic;
+    top: 135px;
 }
 
 #hrAndButtonContainer {
