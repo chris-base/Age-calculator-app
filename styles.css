@@ -78,7 +78,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 #invalidInputText {
     position: absolute;
-    display: flex;
+    display: none;
     margin: 0 0 0 3px;
     color: hsl(0, 100%, 67%);
     font-size: 11px;

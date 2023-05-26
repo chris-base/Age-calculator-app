@@ -2,17 +2,37 @@ const red = "hsl(0, 100%, 67%)";
 const grey = "hsl(0, 1%, 44%)";
 let showInvalidMessage: Boolean;
 
+const calculateTimes = (yearIn: number, monthIn: number, dayIn: number) => {
+
+    let timeDifferenceFromNow: number = new Date().getTime() - new Date(yearIn, monthIn, dayIn).getTime();
+
+    let year = Math.floor(Number(timeDifferenceFromNow) / 31536000000);
+
+    let month = Math.floor((Number(timeDifferenceFromNow) % 31536000000) / 2629746000);
+
+    let day = Math.floor(((Number(timeDifferenceFromNow) % 31536000000) % 2629746000) / 86400000);
+
+    year + month + day;
+
+    console.log(day);
+
+    document.getElementById("outputYearText")!.textContent = String(year);
+    document.getElementById("outputMonthText")!.textContent = String(month);
+    document.getElementById("outputDayText")!.textContent = String(day);
+
+}
+
 const checkIfValidInputs = () => {
 
-    let dayInput = Number((document.getElementById("dayInput") as HTMLInputElement).value);
-    let monthInput = Number((document.getElementById("monthInput") as HTMLInputElement).value);
-    let yearInput = Number((document.getElementById("yearInput") as HTMLInputElement).value);
+    let dayInputValue = Number((document.getElementById("dayInput") as HTMLInputElement).value);
+    let monthInputValue = Number((document.getElementById("monthInput") as HTMLInputElement).value);
+    let yearInputValue = Number((document.getElementById("yearInput") as HTMLInputElement).value);
 
     let invalidInputText = (document.getElementById("invalidInputText") as HTMLParagraphElement);
 
     showInvalidMessage = false;
 
-    if (dayInput < 1 || dayInput > 31) {
+    if (dayInputValue < 1 || dayInputValue > 31) {
         (document.getElementById("dayInput") as HTMLInputElement).style.borderColor = red;
         (document.getElementById("dayText") as HTMLParagraphElement).style.color = red;
 
@@ -22,7 +42,7 @@ const checkIfValidInputs = () => {
         (document.getElementById("dayText") as HTMLParagraphElement).style.color = grey;
     }
 
-    if (monthInput < 1 || monthInput > 12) {
+    if (monthInputValue < 1 || monthInputValue > 12) {
         (document.getElementById("monthInput") as HTMLInputElement).style.borderColor = red;
         (document.getElementById("monthText") as HTMLParagraphElement).style.color = red;
 
@@ -32,7 +52,7 @@ const checkIfValidInputs = () => {
         (document.getElementById("monthText") as HTMLParagraphElement).style.color = grey;
     }
 
-    if (yearInput < 1900 || yearInput > 2023) {
+    if (yearInputValue < 1900 || yearInputValue > 2023) {
         (document.getElementById("yearInput") as HTMLInputElement).style.borderColor = red;
         (document.getElementById("yearText") as HTMLParagraphElement).style.color = red;
 
@@ -43,6 +63,10 @@ const checkIfValidInputs = () => {
     }
 
     invalidInputText.style.display = showInvalidMessage ? "flex" : "none";
+
+    if (!showInvalidMessage) {
+        calculateTimes(yearInputValue, monthInputValue, dayInputValue);
+    }
 
 }
 
