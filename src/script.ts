@@ -1,24 +1,22 @@
+var moment = require('moment');
+
 const red = "hsl(0, 100%, 67%)";
 const grey = "hsl(0, 1%, 44%)";
 let showInvalidMessage: Boolean;
 
 const calculateTimes = (yearIn: number, monthIn: number, dayIn: number) => {
 
-    let timeDifferenceFromNow: number = new Date().getTime() - new Date(yearIn, monthIn, dayIn).getTime();
+    let starts = moment(yearIn + "-" + monthIn + "-" + dayIn + " 00:00:00");
 
-    let year = Math.floor(Number(timeDifferenceFromNow) / 31536000000);
+    let ends = moment();
 
-    let month = Math.floor((Number(timeDifferenceFromNow) % 31536000000) / 2629746000);
+    var duration = moment.duration(ends.diff(starts));
 
-    let day = Math.floor(((Number(timeDifferenceFromNow) % 31536000000) % 2629746000) / 86400000);
+    console.log(ends);
 
-    year + month + day;
-
-    console.log(day);
-
-    document.getElementById("outputYearText")!.textContent = String(year);
-    document.getElementById("outputMonthText")!.textContent = String(month);
-    document.getElementById("outputDayText")!.textContent = String(day);
+    document.getElementById("outputYearText")!.textContent = duration.years();
+    document.getElementById("outputMonthText")!.textContent = duration.months();
+    document.getElementById("outputDayText")!.textContent = duration.days();
 
 }
 
@@ -52,7 +50,7 @@ const checkIfValidInputs = () => {
         (document.getElementById("monthText") as HTMLParagraphElement).style.color = grey;
     }
 
-    if (yearInputValue < 1900 || yearInputValue > 2023) {
+    if (yearInputValue < 1900 || yearInputValue > 2022) {
         (document.getElementById("yearInput") as HTMLInputElement).style.borderColor = red;
         (document.getElementById("yearText") as HTMLParagraphElement).style.color = red;
 
