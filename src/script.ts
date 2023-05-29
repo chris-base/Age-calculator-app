@@ -2,6 +2,9 @@ var moment = require('moment');
 
 const red = "hsl(0, 100%, 67%)";
 const grey = "hsl(0, 1%, 44%)";
+
+const daysPerMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
 let showInvalidMessage: Boolean;
 
 const calculateTimes = (yearIn: number, monthIn: number, dayIn: number) => {
@@ -11,8 +14,6 @@ const calculateTimes = (yearIn: number, monthIn: number, dayIn: number) => {
     let ends = moment();
 
     var duration = moment.duration(ends.diff(starts));
-
-    console.log(ends);
 
     document.getElementById("outputYearText")!.textContent = duration.years();
     document.getElementById("outputMonthText")!.textContent = duration.months();
@@ -30,7 +31,7 @@ const checkIfValidInputs = () => {
 
     showInvalidMessage = false;
 
-    if (dayInputValue < 1 || dayInputValue > 31) {
+    if (dayInputValue < 1 || dayInputValue > daysPerMonth[monthInputValue - 1]) {
         (document.getElementById("dayInput") as HTMLInputElement).style.borderColor = red;
         (document.getElementById("dayText") as HTMLParagraphElement).style.color = red;
 

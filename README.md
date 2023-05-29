@@ -31,12 +31,12 @@ Users should be able to:
 - See hover and focus states for all interactive elements on the page
 - **Bonus**: See the age numbers animate to their final number when the form is submitted### Screenshot
 
-![]()
+![](./assets/images/ageCalculatorSS.png)
 
 ### Links
 
-- Live Site URL: [Live Site]()
-- Solution URL: [My Solution]()
+- Live Site URL: [Live Site](https://chris-base.github.io/Age-calculator-app/)
+- Solution URL: [My Solution](https://www.frontendmentor.io/solutions/age-calculator-christopher-base-Gs12e5KztM)
 
 ### Built with
 
@@ -48,6 +48,8 @@ Users should be able to:
 - JavaScript
 
 ### What I learned
+
+I learned a lot about using Browserify to be able to use require, which was then used for moment.js. Moment is an easier date/time npm package, that allows for better use of reading time and dates, as well as comparing them.
 
 ## Author
 

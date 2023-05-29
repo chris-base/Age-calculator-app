@@ -27,7 +27,7 @@ body {
     display: flex;
 }
 
-#inputContainer {
+.inputContainer {
     display: flex;
     height: 90px;
     margin-right: 25px;
